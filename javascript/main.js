@@ -29,6 +29,16 @@ const images = [
   },
 ];
 
+const { createApp } = Vue;
+
+createApp({
+  data() {
+    return {
+      message: "Hello Vue!",
+    };
+  },
+}).mount("#app");
+
 // Variabile contatore
 let active = 0;
 

@@ -1,8 +1,19 @@
+/***************
+RESET
+***************/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+[v-cloak] {
+  display: none;
+}
+
+/*****************
+CONTAINERS
+*****************/
 
 .container {
   width: 900px;
@@ -12,6 +23,9 @@
   align-items: center;
 }
 
+/*****************
+GENERAL
+*****************/
 .items {
   width: 700px;
   height: 300px;
