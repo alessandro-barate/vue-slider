@@ -36,22 +36,26 @@ createApp({
 
   methods: {
     next() {
-      if (this.active < this.images.length - 1) {
-        this.active++;
-      }
+      this.active++;
       if (this.active >= this.images.length) {
         this.active = 0;
       }
     },
     previous() {
-      if (this.active > 0) {
-        this.active--;
-      }
+      this.active--;
       if (this.active < 0) {
         this.active = images.length - 1;
       }
     },
   },
+
+  // mounted() {
+  //   if (this.active >= this.images.length) {
+  //     this.active = 0;
+  //   } else if (this.active < 0) {
+  //     this.active = images.length - 1;
+  //   }
+  // },
 }).mount("#app");
 
 // // Variabile per il setInterval
