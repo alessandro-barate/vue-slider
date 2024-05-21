@@ -44,65 +44,11 @@ createApp({
     previous() {
       this.active--;
       if (this.active < 0) {
-        this.active = images.length - 1;
+        this.active = this.images.length - 1;
       }
     },
   },
-
-  // mounted() {
-  //   if (this.active >= this.images.length) {
-  //     this.active = 0;
-  //   } else if (this.active < 0) {
-  //     this.active = images.length - 1;
-  //   }
-  // },
 }).mount("#app");
-
-// // Variabile per il setInterval
-// let interval;
-
-// // Funzione per il loop infinito dello scorrere delle immagini
-// function show(index) {
-//   if (index >= images.length) {
-//     active = 0;
-//   } else if (index < 0) {
-//     active = images.length - 1;
-//   }
-// }
-
-// // Funzione per visualizzare le immagini con il bottone freccia su
-// function previous() {
-//   clearInterval(interval);
-//   document
-//     .getElementsByClassName("item", "active")
-//     [active].classList.remove("active");
-//   active--;
-//   show(active);
-//   document.getElementsByClassName("item")[active].classList.add("active");
-// }
-
-// // Funzione per visualizzare le immagini con il bottone freccia giu
-// function next(pos) {
-//   document
-//     .getElementsByClassName("item", "active")
-//     [active].classList.remove("active");
-
-//   if (isNaN(pos)) {
-//     active++;
-//   } else {
-//     active = pos;
-//   }
-//   show(active);
-//   document.getElementsByClassName("item")[active].classList.add("active");
-// }
-
-// show();
-
-// // Evento click bottone freccia giu
-// document.querySelector(".next").addEventListener("click", next);
-
-// // Evento click bottone freccia su
-// document.querySelector(".prev").addEventListener("click", previous);
 
 /*  Aprire ticket perchè la stessa funzione next, se attivato l'interval, dà un
 comportamento strano ai thumbnails  */
