@@ -51,8 +51,14 @@ createApp({
     currentImage(index) {
       this.active = index;
     },
+
+    stopAutoplay() {
+      clearInterval(this.interval);
+    },
+  },
+  mounted() {
+    this.interval = setInterval(() => {
+      this.next();
+    }, 3000);
   },
 }).mount("#app");
-
-/*  Aprire ticket perchè la stessa funzione next, se attivato l'interval, dà un
-comportamento strano ai thumbnails  */
