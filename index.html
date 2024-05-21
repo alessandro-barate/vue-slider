@@ -21,13 +21,13 @@
             <p class="positioning p bg"></p>
           </div>
         </div>
-        <div
-          class="thumbs"
-          v-for="(image, index) in images"
-          v-show="active === index"
-        >
+        <div class="thumbs">
           <div class="thumb">
-            <img :src="image" />
+            <img
+              v-for="(image, index) in images"
+              :src="image"
+              @click="currentImage(index)"
+            />
           </div>
           <div @click="previous" class="prev"></div>
           <div @click="next" class="next"></div>

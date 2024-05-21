@@ -47,6 +47,10 @@ createApp({
         this.active = this.images.length - 1;
       }
     },
+
+    currentImage(index) {
+      this.active = index;
+    },
   },
 }).mount("#app");
 

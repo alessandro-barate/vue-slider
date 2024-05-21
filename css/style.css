@@ -61,6 +61,10 @@ GENERAL
   bottom: 0px;
 }
 
+.prev {
+  top: 0px;
+}
+
 .prev::after {
   content: "";
   width: 10px;
