@@ -33,100 +33,72 @@ createApp({
       active: 0,
     };
   },
+
+  methods: {
+    next() {
+      if (this.active < this.images.length - 1) {
+        this.active++;
+      }
+      if (this.active >= this.images.length) {
+        this.active = 0;
+      }
+    },
+    previous() {
+      if (this.active > 0) {
+        this.active--;
+      }
+      if (this.active < 0) {
+        this.active = images.length - 1;
+      }
+    },
+  },
 }).mount("#app");
 
 // // Variabile per il setInterval
 // let interval;
 
-// const items = document.querySelector(".items");
-// const thumbs = document.querySelector(".thumbs");
-
-// // Ciclo sull'array per creare gli elementi HTML
-// for (let i = 0; i < images.length; i++) {
-//   const imagesArray = images[i];
-//   const div1 = document.createElement("div");
-//   const div2 = document.createElement("div");
-//   div1.classList.add("item");
-//   div2.classList.add("thumb");
-//   div2.addEventListener("click", function () {
-//     document
-//       .getElementsByClassName("thumb", "active")
-//       [active].classList.remove("active");
-
-//     next(i);
-//     document.getElementsByClassName("thumb")[active].classList.add("active");
-//   });
-
-//   const h2 = document.createElement("h2");
-//   h2.innerText = imagesArray.title;
-//   h2.classList.add("positioning", "h2", "bg");
-
-//   const p = document.createElement("p");
-//   p.innerText = imagesArray.text;
-//   p.classList.add("positioning", "p", "bg");
-
-//   const img1 = document.createElement("img");
-//   const img2 = document.createElement("img");
-//   img1.src = "../../" + imagesArray.image;
-//   img2.src = "../../" + imagesArray.image;
-//   div1.append(img1, h2, p);
-//   div2.append(img2);
-//   items.append(div1);
-//   thumbs.append(div2);
+// // Funzione per il loop infinito dello scorrere delle immagini
+// function show(index) {
+//   if (index >= images.length) {
+//     active = 0;
+//   } else if (index < 0) {
+//     active = images.length - 1;
+//   }
 // }
 
-// Funzione per settare l'immagine iniziale ed il setInterval
-function firstImg() {
-  document.getElementsByClassName("item")[active].classList.add("active");
-  //interval = setInterval(next, 5000);
-}
+// // Funzione per visualizzare le immagini con il bottone freccia su
+// function previous() {
+//   clearInterval(interval);
+//   document
+//     .getElementsByClassName("item", "active")
+//     [active].classList.remove("active");
+//   active--;
+//   show(active);
+//   document.getElementsByClassName("item")[active].classList.add("active");
+// }
 
-// Setto la prima immagine come attiva
-document.getElementsByClassName("thumb")[active].classList.add("active");
+// // Funzione per visualizzare le immagini con il bottone freccia giu
+// function next(pos) {
+//   document
+//     .getElementsByClassName("item", "active")
+//     [active].classList.remove("active");
 
-// Funzione per il loop infinito dello scorrere delle immagini
-function show(index) {
-  if (index >= images.length) {
-    active = 0;
-  } else if (index < 0) {
-    active = images.length - 1;
-  }
-}
+//   if (isNaN(pos)) {
+//     active++;
+//   } else {
+//     active = pos;
+//   }
+//   show(active);
+//   document.getElementsByClassName("item")[active].classList.add("active");
+// }
 
-// Funzione per visualizzare le immagini con il bottone freccia su
-function previous() {
-  clearInterval(interval);
-  document
-    .getElementsByClassName("item", "active")
-    [active].classList.remove("active");
-  active--;
-  show(active);
-  document.getElementsByClassName("item")[active].classList.add("active");
-}
+// show();
 
-// Funzione per visualizzare le immagini con il bottone freccia giu
-function next(pos) {
-  document
-    .getElementsByClassName("item", "active")
-    [active].classList.remove("active");
+// // Evento click bottone freccia giu
+// document.querySelector(".next").addEventListener("click", next);
 
-  if (isNaN(pos)) {
-    active++;
-  } else {
-    active = pos;
-  }
-  show(active);
-  document.getElementsByClassName("item")[active].classList.add("active");
-}
-
-firstImg();
-show();
-
-// Evento click bottone freccia giu
-document.querySelector(".next").addEventListener("click", next);
-
-// Evento click bottone freccia su
-document.querySelector(".prev").addEventListener("click", previous);
+// // Evento click bottone freccia su
+// document.querySelector(".prev").addEventListener("click", previous);
 
 /*  Aprire ticket perchè la stessa funzione next, se attivato l'interval, dà un
 comportamento strano ai thumbnails  */
