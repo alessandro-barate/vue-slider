@@ -53,12 +53,20 @@ createApp({
     },
 
     stopAutoplay() {
-      clearInterval(this.interval);
+      clearInterval(this.autoplay);
+    },
+
+    autoplay() {
+      setInterval(() => {
+        this.next();
+      }, 3000);
     },
   },
   mounted() {
-    this.interval = setInterval(() => {
-      this.next();
-    }, 3000);
+    this.autoplay();
   },
 }).mount("#app");
+
+/* Problemi con autoplay e stopautoplay di mouseover
+ e mouseleft. Problema con la classe active dei
+ thumbnails quando attivi */

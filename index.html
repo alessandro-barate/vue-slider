@@ -13,12 +13,11 @@
         <div class="items">
           <div class="item">
             <img
-              autoplay
               v-for="(image, index) in images"
               v-show="active === index"
               :src="image"
               @mouseover="stopAutoplay"
-              @mouseleft=""
+              @mouseleft="autoplay"
               alt=""
             />
             <h2
